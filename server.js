@@ -7,11 +7,15 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 
-const homeRender = (req, res) => {
+const indexRender = (req, res) => {
     return res.render('./index.html')
 }
+const aboutRender = (req, res) => {
+    return res.render('./about.html')
+}
 
-app.get("/", homeRender);
+app.get("/index", indexRender);
+app.get("/about", aboutRender);
 
 app.use("/public", express.static("public"));
 
